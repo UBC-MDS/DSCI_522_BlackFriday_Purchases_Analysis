@@ -22,5 +22,10 @@ Rscript read_raw_data.R ../data/BlackFriday.csv 5
 ![raw data](./imgs/read_raw_data_R.png)
 
 # Question
-# Plan
-# Suggestion
+We are interested in knowing the difference between the purchases made by male and female during Black Friday, so the question we want to ask is whether male and female spent the same amount during Black Friday.  
+
+# Analysis Plan
+To answer the question, we will follow the standard hypothesis testing process. Firstly, we will define our null and alternative hypotheses. Secondly, we will compute a test statistic that corresponds to the null hypothesis. Thirdly, we will use R's hypotheses test functions to generate a specified number of simulated test statistics. Fourthly, we will calculate p-value. Lastly, based on p-value, we make a conclusion on whether to reject the null hypothesis or not. With that, we will know whether male and female spent the same amount on Black Friday.  
+
+# Summarization Plan
+After all the analysis work done, we will present a p-value and with which we will draw a conclusion to the initial question.
