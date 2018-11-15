@@ -23,10 +23,12 @@ Rscript read_raw_data.R ../data/BlackFriday.csv 5
 ![raw data](./imgs/read_raw_data_R.png)
 
 # Question
-We are interested in knowing the difference between the purchases made by male and female during Black Friday, so the question we want to ask is whether male and female spent the same amount during Black Friday.  The question type is inferential. 
+We are interested in knowing the difference between the purchases made by male and female during Black Friday, so the question we want to ask is whether male and female spent the same amount during Black Friday.  The question type is inferential.
 
 # Analysis Plan
 To answer the question, we will follow the standard hypothesis testing process. Firstly, we will define our null and alternative hypotheses. Secondly, we will compute a test statistic that corresponds to the null hypothesis. Thirdly, we will use R's hypotheses test functions to generate a specified number of simulated test statistics. Fourthly, we will calculate p-value. Lastly, based on p-value, we make a conclusion on whether to reject the null hypothesis or not. With that, we will know whether male and female spent the same amount on Black Friday.  
 
+At the same time, we will use boostrapping technique to generate 10000 mean values of purchases made by male and 10000 mean values of purchases made by female. We then will calculate the 95% confidence intervals for these two distributions. Lastly we will look into whether there is an overlap between the two confidence intervals and draw a conclusion.
+
 # Summarization Plan
-After all the analysis work done, we will present a p-value and with which we will draw a conclusion to the initial question.
+After all the analysis work done, we will plot a ridgesplot, on which we will show the boostrapping distribution of male purchases and female purchases. We will also plot the distribution of simulated test statistics plus a vertical line for p-value. We will also print out a table summarizing all the numbers, such as means, confidence intervals and p-values.  
