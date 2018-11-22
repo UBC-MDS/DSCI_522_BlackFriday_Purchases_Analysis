@@ -42,8 +42,7 @@ select_data <- function(data){
   temp <- 
     data %>% 
     select(Gender, Purchase) %>% 
-    drop_na() %>% 
-    rep_sample_n(size = 1000)
+    drop_na() 
     
   return(temp)
 }

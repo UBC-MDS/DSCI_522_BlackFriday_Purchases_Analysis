@@ -2,12 +2,13 @@
 
 ###################################################
 ## Project: BF_purchase_analysis.R
-## Date: 22/11/2018
+## Date: 2018 Nov 
 ## Author: Gilbert Lei and Albert Yu
 ## Script purpose: run hypothesis test to test whether male and female
 ##                spent the same amount on Black Friday.
 ##                This script takes two arguments.
 ## Example: Rscript BF_purchase_analysis.R data/BlackFriday_tidy.csv results/analysis
+##################################################
 
 # libraries
 suppressPackageStartupMessages(library(tidyverse))
