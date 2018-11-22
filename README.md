@@ -1,4 +1,4 @@
-# DSCI_522_BlackFriday_Analysis
+# Project: Black Friday Analysis
 
 Analyze whether male and female make the same amount of purchase on the Black Friday.
 
