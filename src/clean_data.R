@@ -5,7 +5,8 @@
 ## Date: 2o18 Nov 20 
 ## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei [ctb]
 ## Script purpose: This script reads in some raw data in csv format 
-##            and save a tidy version of it. It takes two arguments 
+##            and saves a tidy version of it. It takes two arguments,
+##            the path of input file and the path of output file.
 ##  
 ## Example: Rscript clean_data.R data/data.csv data/data_tidy.csv
 ##################################################
@@ -29,6 +30,8 @@ main <- function(){
   
   # save a tidy version of raw data
   write_csv(out_data, out_file)
+  
+  print("Cleaning......Complete!")
 }
 
 # select the data 
