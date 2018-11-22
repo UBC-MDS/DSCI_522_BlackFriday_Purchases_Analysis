@@ -3,10 +3,8 @@
 ###################################################
 ## Project: BF_purchase_analysis.R
 ## Date: 2018 Nov 
-## Author: Gilbert Lei and Albert Yu
-## Script purpose: run hypothesis test to test whether male and female
-##                spent the same amount on Black Friday.
-##                This script takes two arguments.
+## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei [ctb cre]
+## Script purpose: 
 ## Example: Rscript BF_purchase_analysis.R data/BlackFriday_tidy.csv results/analysis
 ##################################################
 
@@ -18,20 +16,21 @@ suppressPackageStartupMessages(library(ggplot2))
 # define main function
 main <- function() {
 
-  # read arguments from command line
+  # read arguments from commend line
   args <- commandArgs(trailingOnly = TRUE)
   in_file <- args[1]
-  out_path_n_prefix <- args[2]
-  tmp <- strsplit(out_path_n_prefix, "/")
-  out_path <- tmp[[1]][1]
-  file_prefix <- tmp[[1]][2]
-  boostrap_est_file <- paste(out_path, "/", file_prefix, "_", "boostrap_est.csv", sep = "")
-  boostrap_plot_file <- paste(out_path, "/", file_prefix, "_", "boostrap_plot.png", sep = "")
-  ht_pvalue_file <- paste(out_path, "/", file_prefix, "_", "pvalue.csv", sep = "")
-  null_hypo_plot_file <- paste(out_path, "/", file_prefix, "_", "null_hypo_plot.png", sep = "")
+  out_file_prefix <- args[2]
+  
+  # tmp <- strsplit(out_path_n_prefix, "/")
+  # out_path <- tmp[[1]][1]
+  # file_prefix <- tmp[[1]][2]
+  # boostrap_est_file <- paste(out_path, "/", file_prefix, "_", "boostrap_est.csv", sep = "")
+  # boostrap_plot_file <- paste(out_path, "/", file_prefix, "_", "boostrap_plot.png", sep = "")
+  # ht_pvalue_file <- paste(out_path, "/", file_prefix, "_", "pvalue.csv", sep = "")
+  # null_hypo_plot_file <- paste(out_path, "/", file_prefix, "_", "null_hypo_plot.png", sep = "")
 
   # read in data
-  data <- read_csv(in_file)    
+  data <- suppressMessages(read_csv(in_file))    
   
   male_one_sample <- data %>% 
     filter(Gender == 'M') %>% 
