@@ -21,6 +21,13 @@ main <- function() {
   args <- commandArgs(trailingOnly = TRUE)
   in_file <- args[1]
   out_path_n_prefix <- args[2]
+  tmp <- strsplit(out_path_n_prefix, "/")
+  out_path <- tmp[[1]][1]
+  file_prefix <- tmp[[1]][2]
+  boostrap_est_file <- paste(out_path, "/", file_prefix, "_", "boostrap_est.csv", sep = "")
+  boostrap_plot_file <- paste(out_path, "/", file_prefix, "_", "boostrap_plot.png", sep = "")
+  ht_pvalue_file <- paste(out_path, "/", file_prefix, "_", "pvalue.csv", sep = "")
+  null_hypo_plot_file <- paste(out_path, "/", file_prefix, "_", "null_hypo_plot.png", sep = "")
 
   # read in data
   data <- read_csv(in_file)    
@@ -38,18 +45,28 @@ main <- function() {
   combined_sample <- bind_rows(male_one_sample, female_one_sample) 
   combined_sample <- combined_sample[c("Gender", "Purchase")]
   
-  boostrapping(combined_sample, out_path_n_prefix)
+  boostrapping_results <- boostrapping(combined_sample)
+  # output estimation to a file 
+  write_csv(boostrapping_results[[1]], boostrap_est_file) 
+  # save the boostrapping plot to a file
+  ggsave(boostrap_plot_file, plot = boostrapping_results[[2]], 
+         width = 8, height = 4)
   
-  hypo_test(combined_sample, out_path_n_prefix)
-
+  hypo_test_results <- hypo_test(combined_sample) 
+  # output p-value to a file
+  write_csv(hypo_test_results[[1]], ht_pvalue_file)  
+  # save the null distribution plot to a file
+  ggsave(null_hypo_plot_file, plot = hypo_test_results[[2]], 
+         width = 8, height = 4)
 }
 
 
 ##
 ##  boostrapping function. 
-##  it compares the distribution of male purchases and female purchases
+##  it estimates the distribution of male purchases and female purchases,
+##  and returns an estimation data frame and a boostrapping plot
 ## 
-boostrapping <- function(sample_data, out_path, file_prefix) {
+boostrapping <- function(sample_data) {
   male_sample <- sample_data %>% 
     filter(Gender == 'M') 
   female_sample <- sample_data %>% 
@@ -76,8 +93,6 @@ boostrapping <- function(sample_data, out_path, file_prefix) {
   combined_est <- bind_rows(male_est, female_est)
   combined_est <- combined_est[c(3,4,1,2)]
   colnames(combined_est) <- c("Gender", "Mean", "Lower_ci", "Upper_ci") 
-  # output estimation to external file 
-  write_csv(combined_est, "results/estimation.csv")
   
   male_boostrapping$replicate <- NULL
   male_boostrapping$Gender <- 'Male' 
@@ -85,10 +100,12 @@ boostrapping <- function(sample_data, out_path, file_prefix) {
   female_boostrapping$Gender <- 'Female'
   combined_stats <- bind_rows(male_boostrapping, female_boostrapping)
   
-  combined_stats %>% ggplot(aes(x = Gender)) +
-    geom_violin(aes(y = stat, group = Gender)) + 
+  boostrapping_plot <- combined_stats %>% ggplot(aes(x = Gender)) +
+    geom_violin(aes(y = stat, group = Gender), colour = "blue") + 
     geom_point(data = combined_est, aes(x = Gender, y = Mean)) + 
     geom_errorbar(data = combined_est, aes(x = Gender, ymin = Lower_ci, ymax = Upper_ci))
+  
+  return(list(combined_est, boostrapping_plot))
 }
 
 #
@@ -96,7 +113,7 @@ boostrapping <- function(sample_data, out_path, file_prefix) {
 # null hypothesis (H_0): male and female spent the same amount on Black Friday.
 # alternative hypothesis (H_A): male and female spent different amounts on Black Friday.
 #
-hypo_test <- function(sample_data, out_path, file_prefix) {
+hypo_test <- function(sample_data) {
   # calculate delta sample 
   purchase_est <- sample_data %>% 
     group_by(Gender) %>% 
@@ -123,13 +140,9 @@ hypo_test <- function(sample_data, out_path, file_prefix) {
   pvalue <- null_dist %>% 
     get_pvalue(obs_stat = delta_sample, direction = "both")
   
+  return(list(pvalue, null_dist_plot))
 }
 
 # call main function
 main()
-
-
-
-
-
 
