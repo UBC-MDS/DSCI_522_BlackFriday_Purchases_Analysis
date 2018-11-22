@@ -1,3 +1,35 @@
-# Report
+---
+title: "Black Friday Analysis"
+author: "Gilber Lei and Mengda (Albert) Yu"
+date: "2018 Nov 22"
+output: github_document
+---
 
-# FILL LATER 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+# Delete later
+## requirments.
+> Fourth script: an .Rmd or .ipynb actually, that presents original data, the statistical summaries, and/or the figures in a little report. There should be a written narrative in this document that introduces and justifies your question, introduces the data set, presents the findings/results, and interprets the findings/results in context of the question. Some critique of the analysis is also expected (limitations, assumptions, etc) and a statement of future directions (what would you do next if you had more time to work on this). The report is expected to be 1-2 written pages (excluding figures, tables and references). You are expected to have a reference section and cite 2-3 external sources (data source can be one of these citations).
+
+# components
++ Present original data
++ statistical summaries
++ figures 
+
+# sections
+1. Introduces questions
+2. present original data ... some explanations 
+3. EDA two features plots 
+4. statistical analysis/summaries (mean $ CI, t-test results)
+5. limitation, assumptions, future directions
+6. References 
+  + data sources
+----
+
+# Introduction
+
+Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. The objective of project is to analyze whether the amount of purchase made by male is different than that made by female during Black Friday.
+
