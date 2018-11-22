@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 
 ##################################################
-## Project: analyze_data.R
+## Project: visualize_data.R
 ## Date: 2018 Nov 20 
 ## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei [ctb]
 ## Script purpose: This script reads in a tidy data set from a csv file
 ##          and creates an exploratory visualization to help us understand the dataset
 ##  
-## Example: Rscript analyze_data.R data/data_tidy.csv imgs
+## Example: Rscript visualize_data.R data/data_tidy.csv imgs
 ##################################################
 
 # Library
