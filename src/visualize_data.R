@@ -33,13 +33,13 @@ main <- function(){
   
   # save the figures
   ggsave("gender_bar.png", plot = gender_bar, path = out_file_prefix,
-         width = 8, height = 4)
+         width = 8, height = 5)
   ggsave("purch_dist.png", plot = purch_dist, path = out_file_prefix,
-         width = 8, height = 4)
+         width = 8, height = 5)
   ggsave("gender_pur_hist.png", plot = gender_pur_hist, path = out_file_prefix,
-         width = 8, height = 4)
+         width = 8, height = 5)
   
-  print("Analyzing......Complete!")
+  cat("EDA......Complete!")
 }
 
 # create a barplot for gender feature 

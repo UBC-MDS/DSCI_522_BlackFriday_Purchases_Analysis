@@ -13,6 +13,8 @@
 
 # library
 suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(infer))
+set.seed(4)
 
 # define main function
 main <- function(){
@@ -31,17 +33,18 @@ main <- function(){
   # save a tidy version of raw data
   write_csv(out_data, out_file)
   
-  print("Cleaning......Complete!")
+  cat("Cleaning......Complete!\n")
 }
 
-# select the data 
+# randomly sample data 
 select_data <- function(data){
   
   temp <- 
     data %>% 
     select(Gender, Purchase) %>% 
-    drop_na()
-  
+    drop_na() %>% 
+    rep_sample_n(size = 1000)
+    
   return(temp)
 }
 
