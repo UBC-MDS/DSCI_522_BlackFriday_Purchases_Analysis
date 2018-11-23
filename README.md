@@ -33,7 +33,7 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 ### Dependencies
 
 - R version 3.5.1
-- tidyverse, *manipulate and organize dataset* 
+- tidyverse, *manipulate and organize dataset*
 - ggplot2, *generate graphics*
 - scales, *scale tools for graphics*
 - broom, *tidy dataset*
@@ -42,7 +42,7 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 
 The data set contains the transactions made in a retail store on the Black Friday. We want to understand better the difference of the purchase behaviour between male and female. A specific question to be addressed by this project:
 
-Is the amount of purchase made by male different than that made by female during Black Friday? 
+Is the amount of purchase made by male different than that made by female during Black Friday?
 
 This question is inferential.
 
@@ -71,3 +71,19 @@ A summary statement regarding the results of this project will include the follo
 - A distribution plot to show the distribution of the null hypothesis, with vertical lines to represent 95% confidence interval and t-statistic.  
 
 We will also comment on what we observe and make a conclusion on the results of our analysis.
+
+# Project Execution
+
+We followed the data analysis methodology shown in below to carry out the analysis work in this project.  
+![](imgs/data-science.png)  
+<i>Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) by Grolemund & Wickham</i>  
+
+Firstly, we imported the original csv file into R and had a quick look at it so as to understand how it is organized.  
+
+Secondly, we used a script to extract columns `Gender` and `Purchase` from the original data set and saved them into a new csv file.
+
+Thirdly, based on the question we asked in this project, we defined our null hypothesis and alternative hypothesis. Then we run a t-test and saved the outputs into a csv file. At the same time, we used asymptotic theory to calculate the confidence intervals of the mean purchases made by male and female respectively and saved the results into another csv file.
+
+Fourthly, using the output from the third step, we made a t-distribution plot and an error bar plot.
+
+Lastly, we wrote our analysis report in a R Markdown file. 
