@@ -54,7 +54,8 @@ create_gender_barplot <- function(data){
     xlab("Gender") + 
     ylab("The number of observation") +
     ggtitle("The number of femal and male in the sample") +
-    theme_bw()
+    theme_bw() +
+    theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5))
   
   return (temp)
 }

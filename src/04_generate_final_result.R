@@ -65,7 +65,7 @@ plot_errorbar <- function(bf_est) {
   return (errorbar)
 }
 
-# plot 
+# plot t distribution and t-statistic
 plot_tdist <- function(t_test_result){
   
   tdist<- 
