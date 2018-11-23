@@ -1,0 +1,98 @@
+---
+title: "Black Friday Analysis"
+author: "Gilber Lei and Mengda (Albert) Yu"
+date: "2018 Nov 22"
+output: 
+  github_document:
+    fig_width: 10
+    fig_height: 7
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+# Delete later
+## requirments.
+> Fourth script: an .Rmd or .ipynb actually, that presents original data, the statistical summaries, and/or the figures in a little report. There should be a written narrative in this document that introduces and justifies your question, introduces the data set, presents the findings/results, and interprets the findings/results in context of the question. Some critique of the analysis is also expected (limitations, assumptions, etc) and a statement of future directions (what would you do next if you had more time to work on this). The report is expected to be 1-2 written pages (excluding figures, tables and references). You are expected to have a reference section and cite 2-3 external sources (data source can be one of these citations).
+
+
+* dplyr, *tool frome processing dataset*.
+* ggplot2, *creating graphics*.
+* tidyverse, 
+
+# components
++ Present original data
++ statistical summaries
++ figures 
+
+# sections
+1. Introduces questions
+2. present original data ... some explanations 
+3. EDA two features plots 
+4. statistical analysis/summaries (mean $ CI, t-test results)
+5. limitation, assumptions, future directions
+6. References 
+  + data sources
+----
+
+# Introduction
+
+Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. The objective of project is to analyze whether the amount of purchase made by male is different than that made by female during Black Friday.
+
+
+# Data source presentation
+
+The data set contains the transactions made in a retail store on Black Friday. It contains 12 features.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+BlackFriday <- read.csv("../data/BlackFriday.csv")
+
+#print head data
+head(BlackFriday, 5)
+```
+
+To perform our hypothesis test, we extract two features from the data set, One is `purchase`, which is quantitive and represents the purchase amount in dollars, and another is `gender`, which is categorical and has two possible values: male (M) and female (F).
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+BlackFriday_tidy <- read.csv("../data/BlackFriday_tidy.csv")
+
+#print head data
+head(BlackFriday_tidy, 5)
+```
+
+The structure of the new data set is shown below.
+
+```{r, message = FALSE, echo = FALSE} 
+str(BlackFriday_tidy)
+```
+
+
+# Exploratory Data Analysis
+
+Let's us start with initial investigations on the new data set so as to discover patterns and to test hypothesis with the help of visualizations.
+
+![](../imgs/gender_bar.png, "Female = 132197, Male = 405380")
+
+We plot a bar plot to show the number of femal and male made purchases on Black Friday in this sample. As can be seen above, An aggregate of over 400,000 males made purchases on Black Friday, three times more than the number of female.
+
+![](../imgs/purch_dist.png, "The distribution of purchase")
+
+The histogram reveals that the amount of majority purchases made on Black Friday are centralized in a range from about \$5,000 to \$13,000. The mean purchases are around \$10,000.
+
+![](../imgs/gender_pur_hist.png, "The distribution of purchase for each gender")
+
+The shape of the distribution of purchase made by female on Black Friday is simliar to that made by male, with three main purchase ranges. The difference between the mean purchase of female and the mean purchase of male is not huge, but it does not provide convincing evidence that The mean purchase amount made by male is different than that made by female.
+
+# Analysis
+
+The process of out analysis begins with the definition of null hypothesis and alternative hypothesis. The null hypothesis $H_0$ is thhe mean purchase amount made by male is not different than the mean purchase amount made by female, while the alternative hypothesis $H_1$ is the mean purchase amount made by male is different than the mean purchase amount made by female.
+
+
+
+
+
+
