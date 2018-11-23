@@ -23,13 +23,36 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Introduces questions
 2. present original data ... some explanations 
 3. EDA two features plots 
-4. statistical analysis/summaries (mean $ CI, t-test results)
-5. limitation, assumptions, future directions
+4. statistical analysis/summaries (mean $ CI, t-test results) 
+5. limitation, assumptions, future directions 
 6. References 
   + data sources
 ----
 
 # Introduction
 
-Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. The objective of project is to analyze whether the amount of purchase made by male is different than that made by female during Black Friday.
+Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. People might be curious about how male's purchase behavior on Black Friday differs from that of female. One interesting question to ask is whether male and female spend the same amount on Black Friday. In this project, we will use some data science techniques to do some analysis and give an answer to this question. 
 
+
+
+
+
+
+
+#  Assumptions 
+
+In this project, we based our statistical inference on asymptotic theory. It means we assume the sample we used in this project met the two important conditions of the Central Limit Theorem (CLT). 
+
+Firstly, the sample is independent. To meet the independence condition, we considered two things. 
+    1. The sample is random. As mentioned above, the data points in the data set come from the Black Friday sales records in a store in the United States. We assume the Black Friday on which all the purchases happened is not significantly different from Black Fridays in other years. We also assume that the store in which all the purchases happened is a typical store in the United States. 
+    2. The sample size is less than 10% of the population size. Since the sample contains only the sales data from one store in the United States, it must be less than 10% of the Black Friday sales in the United States. 
+
+Secondly, the sample size is big enough. Since the sample contains more than 500,000 data points, we believe is a big enough sample.  
+
+# Limitations and Future Directions 
+
+Due to time constraint, we chose to work on the data set that is readily downloadable from Kaggle.com. We also limited our analysis on the means of male and female purchases. If we have more time to work on this project in the future, we believe we could improve our analysis in several aspects. 
+
+Firstly, we should improve the randomness of the sample. Our current sample includes only sales records from one store. It is prone to be biased. One way to improve it is to randomly select data points from different stores at different regions across the United States. 
+
+Secondly, after answering the question on whether male and female spend the same amounts on Black Friday, we may further analyze what male and female really bought, so as to get deeper insight into the different purchase behaviors between male and female.  
