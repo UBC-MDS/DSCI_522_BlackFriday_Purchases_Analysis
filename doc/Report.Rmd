@@ -132,4 +132,6 @@ Secondly, after answering the question on whether male and female spend the same
 
 # References
 
-1. [Black Friday analysis, Kaggle.com](https://www.kaggle.com/mehdidag/black-friday)
+1. [Black Friday analysis, Kaggle.com](https://www.kaggle.com/mehdidag/black-friday) 
+2. [R for Data Science, by Grolemund & Wickham](https://r4ds.had.co.nz/introduction.html)
+3. [Introduction to asymptotic theory](https://github.ubc.ca/MDS-2018-19/DSCI_552_stat-inf-1_students/blob/master/lectures/06_lecture-intro-to-asymptotic-theory.ipynb)  
