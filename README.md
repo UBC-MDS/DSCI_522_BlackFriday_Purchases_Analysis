@@ -34,7 +34,7 @@ originally comes from a competition hosted by `Analytics Vidhya`.
 ---
 To read first 5 lines from `BlackFriday.csv`, we run the following script in R.
 
-```r
+```
 Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 ```
 ![raw data](./imgs/read_raw_data_R.png)
@@ -87,7 +87,7 @@ The procedure of running data analysis contains 5 steps, including clearning dat
 
 We start with cleaning data via `01_clean_data.R` that takes two arguments, a file that contains raw data and a output file that contains a tidy version of data. Then we apply exploratory data analysis via `02_visualize_data.R` from the tidy version of data file to discover patterns and generate a group of figures with the given path prefix `imgs`. In `03_analyze_data.R`, we carry out estimation and t-test based on the Central Limit Theorem and asymptotic theory. The results are stored in `results` folder. Then we generate final figures from the last step via `04_generate_final_result.R` and save them in `imgs`. In the end, we render `report.Rmd` into a Markdown file.
 
-```r
+```
 # step 1 clean data
 Rscript src/01_clean_data.R data/BlackFriday.csv data/BlackFriday_tidy.csv
 
@@ -102,4 +102,10 @@ Rscript src/04_generate_final_result.R results imgs
 
 # step 5 Render Markdown file 
 Rscript -e "rmarkdown::render('./doc/report.Rmd')"
+```
+
+Or, we can just run the scripts via bash.
+
+```
+bash run_all.sh
 ```

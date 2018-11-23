@@ -91,10 +91,10 @@ We then apply a mathematical short cut to calculate the 95% confidence intervals
 
 The multipliers (*z*) for the 95% confidence interval formula is the quantiles of 2.5% and 97.5%. The results are summarized below.
 
-|   X1| Gender |  purchase\_mean|       n|      df|        se|  lower\_95|  upper\_95|
-|----:|:-------|---------------:|-------:|-------:|---------:|----------:|----------:|
-|    1| F      |        8809.761|  132197|  132196|  12.98565|   8784.310|   8835.213|
-|    2| M      |        9504.772|  405380|  405379|   7.93325|   9489.223|   9520.321|
+|   X1| Gender |  purchase\_mean|       n|        se|  lower\_95|  upper\_95|
+|----:|:-------|---------------:|-------:|---------:|----------:|----------:|
+|    1| F      |        8809.761|  132197|  12.98565|   8784.310|   8835.213|
+|    2| M      |        9504.772|  405380|   7.93325|   9489.223|   9520.321|
 
 *Table 3. The mean purchase amount with 95% confidence interval*
 
