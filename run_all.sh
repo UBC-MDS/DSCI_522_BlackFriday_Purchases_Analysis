@@ -20,3 +20,4 @@ Rscript src/03_analyze_data.R data/BlackFriday_tidy.csv results
 Rscript src/04_generate_final_result.R results imgs
 
 # step 5 make report
+Rscript -e "rmarkdown::render('./doc/report.Rmd')"
