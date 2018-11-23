@@ -78,7 +78,7 @@ plot_tdist <- function(t_test_result){
     xlim(c(-47, 15)) +
     ylab("density") +
     xlab("") +
-    ggtitle("The T distribution under the null hypothesis H_0") +
+    ggtitle("The T-distribution under the null hypothesis H_0") +
     theme_bw() +
     theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
           axis.title.y = element_text(face = "bold"))
