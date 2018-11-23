@@ -39,7 +39,7 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 ```
 ![raw data](./imgs/read_raw_data_R.png)
 
-### Dependencies
+# Dependencies
 
 - R version 3.5.1
 - tidyverse, *manipulate and organize dataset*

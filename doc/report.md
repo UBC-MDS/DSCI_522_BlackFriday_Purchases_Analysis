@@ -13,10 +13,6 @@ Gilber Lei and Mengda (Albert) Yu
 -   [6.0 Limitations and Future Directions](#limitations-and-future-directions)
 -   [7.0 References](#references)
 
-<style>
-body {
-text-align: justify}
-</style>
 1.0 Introduction
 ================
 

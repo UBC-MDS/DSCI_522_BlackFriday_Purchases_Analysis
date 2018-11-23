@@ -13,11 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 suppressPackageStartupMessages(library(tidyverse))
 ```
 
-<style>
-body {
-text-align: justify}
-</style>
-
 # 1.0 Introduction
 
 Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. People might be curious about how male's purchase behavior on Black Friday differs from that of female. One specific question to ask is whether male and female spend the same amount on Black Friday. In this project, we will apply data analysis techniques and give an answer to this question. 
