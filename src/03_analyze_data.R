@@ -48,10 +48,9 @@ calc_estimation <- function(data) {
     group_by(Gender) %>% 
     summarize(purchase_mean = mean(Purchase), 
               n = n(), 
-              df = n - 1,
               se = sd(Purchase) / sqrt(n)) %>% 
-    mutate(lower_95 = purchase_mean - (qt(0.975, df) * se), 
-           upper_95 = purchase_mean + (qt(0.975, df) * se))
+    mutate(lower_95 = purchase_mean - (qnorm(0.975) * se), 
+           upper_95 = purchase_mean + (qnorm(0.975) * se))
 
   return(BF_est)
 }
