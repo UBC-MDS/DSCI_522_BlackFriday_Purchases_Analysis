@@ -53,9 +53,9 @@ create_gender_barplot <- function(data){
     scale_y_continuous(labels = comma) +
     xlab("Gender") + 
     ylab("The number of observation") +
-    ggtitle("The number of femal and male in the sample") +
+    ggtitle("The number of female and male made purchase on Black Friday") +
     theme_bw() +
-    theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5))
+    theme(plot.title = element_text(size = 13, face = "bold", hjust = 0.5))
   
   return (temp)
 }
@@ -79,9 +79,9 @@ create_purch_hist <- function(data){
     scale_x_continuous(labels = dollar_format()) +
     xlab("Purchase") + 
     ylab("The number of observation") +
-    ggtitle("The distribution of purchase") +
+    ggtitle("The distribution of purchase amount on Black Friday") +
     theme_bw() +
-    theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5))
+    theme(plot.title = element_text(size = 13, face = "bold", hjust = 0.5))
   
   return (temp)
 }
@@ -109,9 +109,9 @@ create_gender_pur_hist <- function(data){
     scale_x_continuous(labels = dollar_format()) +
     xlab("Purchase") + 
     ylab("The number of observation") +
-    ggtitle("The distribution of purchase for each gender") +
+    ggtitle("The distribution of purchase amount for each gender on Black Friday.") +
     theme_bw() +
-    theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5))
+    theme(plot.title = element_text(size = 13, face = "bold", hjust = 0.5))
   
   return (temp)
 }
