@@ -13,8 +13,6 @@
 
 # library
 suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(infer))
-set.seed(4)
 
 # define main function
 main <- function(){

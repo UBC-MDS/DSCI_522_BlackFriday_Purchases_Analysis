@@ -2,57 +2,134 @@
 title: "Black Friday Analysis"
 author: "Gilber Lei and Mengda (Albert) Yu"
 date: "2018 Nov 22"
-output: github_document
+output: 
+  github_document:
+    fig_width: 10
+    fig_height: 7
+    number_sections : yes
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE,  echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+suppressPackageStartupMessages(library(tidyverse))
 ```
 
----
-# Delete later
-## requirments.
-> Fourth script: an .Rmd or .ipynb actually, that presents original data, the statistical summaries, and/or the figures in a little report. There should be a written narrative in this document that introduces and justifies your question, introduces the data set, presents the findings/results, and interprets the findings/results in context of the question. Some critique of the analysis is also expected (limitations, assumptions, etc) and a statement of future directions (what would you do next if you had more time to work on this). The report is expected to be 1-2 written pages (excluding figures, tables and references). You are expected to have a reference section and cite 2-3 external sources (data source can be one of these citations).
-
-# components
-+ Present original data
-+ statistical summaries
-+ figures 
-
-# sections
-1. Introduces questions
-2. present original data ... some explanations 
-3. EDA two features plots 
-4. statistical analysis/summaries (mean $ CI, t-test results) 
-5. limitation, assumptions, future directions 
-6. References 
-  + data sources
-----
+<style>
+body {
+text-align: justify}
+</style>
 
 # Introduction
 
-Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. People might be curious about how male's purchase behavior on Black Friday differs from that of female. One interesting question to ask is whether male and female spend the same amount on Black Friday. In this project, we will use some data science techniques to do some analysis and give an answer to this question. 
+Black Friday is the name given to the shopping day after Thanksgiving. Many people go out to shop and spend a large amount of money. People might be curious about how male's purchase behavior on Black Friday differs from that of female. One specific question to ask is whether male and female spend the same amount on Black Friday. In this project, we will apply data analysis techniques and give an answer to this question. 
+
+# Data source presentation
+
+The data set used in this project contains the transactions made in a retail store on Black Friday. It contains 12 features.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+BlackFriday <- read.csv("../data/BlackFriday.csv")
+
+#print head data
+head(BlackFriday, 5)
+```
+
+To perform our hypothesis test, we extract two features from the data set, One is `purchase`, which is quantitive and represents the purchase amount in dollars, and another is `gender`, which is categorical and has two possible values: male (M) and female (F).
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+BlackFriday_tidy <- read.csv("../data/BlackFriday_tidy.csv")
+
+#print head data
+head(BlackFriday_tidy, 5)
+```
+
+The structure of the new data set is shown below.
+
+```{r, message = FALSE, echo = FALSE} 
+str(BlackFriday_tidy)
+```
 
 
+# 3.0 Exploratory Data Analysis
 
+Let's us start with initial investigations on the new data set so as to discover patterns and to test hypothesis with the help of visualizations.
 
+![](../imgs/gender_bar.png, "Female : 132197, Male : 405380")
 
+We plot a bar plot to show the number of femal and male made purchases on Black Friday in this sample. As can be seen above, An aggregate of over 400,000 males made purchases on Black Friday, three times more than the number of female.
 
+![](../imgs/purch_dist.png, "The distribution of purchase")
 
-#  Assumptions 
+The histogram reveals that the amount of majority purchases made on Black Friday are centralized in a range from about \$5,000 to \$13,000. The mean purchase amount is around \$10,000.
 
-In this project, we based our statistical inference on asymptotic theory. It means we assume the sample we used in this project met the two important conditions of the Central Limit Theorem (CLT). 
+![](../imgs/gender_pur_hist.png, "The distribution of purchase for each gender")
 
-Firstly, the sample is independent. To meet the independence condition, we considered two things. 
-    1. The sample is random. As mentioned above, the data points in the data set come from the Black Friday sales records in a store in the United States. We assume the Black Friday on which all the purchases happened is not significantly different from Black Fridays in other years. We also assume that the store in which all the purchases happened is a typical store in the United States. 
+The shape of the distribution of purchase made by female on Black Friday is simliar to that made by male, with three main purchase ranges. The difference between the mean purchase of female and the mean purchase of male is not huge, but it does not provide convincing evidence that The mean purchase amount made by male is different than that made by female.
+
+# Analysis
+
+The process of our analysis begins with the definition of null hypothesis and alternative hypothesis. The null hypothesis $H_0$ is the mean purchase amount made by male is not different than the mean purchase amount made by female, while the alternative hypothesis $H_1$ is the mean purchase amount made by male is different than the mean purchase amount made by female.
+
+### Estimation
+
+We use the Central Limit Theorem (CLT) to calculate the standard error (SE) of the sample statistic of interest in order to estimate the mean of a population. The standard error is the standard deviation of the sampling distribution, which can be calculated by the following.
+
+$$SE = \frac{s}{\sqrt{n}}$$
+
+where $s$ is the sample standard deviation and $n$ is the number of observations in the sample.
+
+We then apply a mathematical short cut to calculate the 95% confidence intervals around the sample mean. This is the plausible range for the true populaiton mean we are estimating.
+
+$$95\% \, confidence \, interval \, = \, point \, estimate \, \pm  \, z \, * \, SE$$
+
+The multipliers ($z$) for the 95% confidence interval formula is the quantiles of 2.5% and 97.5%. The results are summarized below.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+(blackfriday_est <- suppressWarnings(read_csv("../results/blackfriday_est.csv")))
+```
+
+Next we plot the mean with 95% confidence interval for each gender in an error bar plot.
+
+![](../imgs/errorbar.png)
+
+The estimate for the population mean purchase amount made by femal is 8809.761 with a 95% confidence interval of 8784.310 and 8835.213. The estimate for the population mean purchase amount made by male is 9504.772 with a 95% confidence interval of 9489.223 and 9520.321. It should be noticed that the 95% confidence interval of our sample estimates are not overlapped. They are completely separated from each other. Therefore we get a sense of that we might not have evidence to claim the null hypothesis.
+
+### Hypothesis Test
+
+We apply t-test to further investigate on whether the mean purchases are no different. The results of t-test are shown below.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+(t_test_result <- suppressWarnings(read_csv("../results/t_test_result.csv")))
+```
+
+The t-statistic and the degree of freedom are -45.67 and 238457 respectively. We use them to plot a t-distribution. Since the sample size is large, the t-distribution produces similar results to those from the normal distribution.
+
+![](../imgs/tdist.png)
+
+The t-statistic is far away from the central of the distribution. The p-value is approximately 0, which is less than the alpha of 0.05 and indicates strong evidence against the null hypothesis. Therefore, we reject the null hypothesis and we cannot say that the mean purchase amount made by male is not different than the mean purchase amount made by female.
+
+# Assumptions 
+
+In this project, we base our statistical inference on asymptotic theory. It means we assume the sample used in this project meets the two important conditions of the CLT. 
+
+Firstly, the sample is independent. To meet the independence condition, we consider two things.
+    1. The sample is random. As mentioned above, the data points in the data set come from the Black Friday sales records in a store. We assume all the purchases happened on Black Friday at this store is not significantly different from the purcahses happened at any other stores on Black Fridays in any other years. 
     2. The sample size is less than 10% of the population size. Since the sample contains only the sales data from one store in the United States, it must be less than 10% of the Black Friday sales in the United States. 
 
-Secondly, the sample size is big enough. Since the sample contains more than 500,000 data points, we believe is a big enough sample.  
+Secondly, the sample size is big enough. Since the sample contains more than 500,000 data points, we believe it is a big enough sample.  
 
 # Limitations and Future Directions 
 
-Due to time constraint, we chose to work on the data set that is readily downloadable from Kaggle.com. We also limited our analysis on the means of male and female purchases. If we have more time to work on this project in the future, we believe we could improve our analysis in several aspects. 
+Due to time constraint, we choose to work on the data set that is readily downloadable from Kaggle.com. We also limit our analysis on the means of male and female purchases. If we have more time to work on this project in the future, we believe we could improve our analysis in several aspects. 
 
-Firstly, we should improve the randomness of the sample. Our current sample includes only sales records from one store. It is prone to be biased. One way to improve it is to randomly select data points from different stores at different regions across the United States. 
+Firstly, we should improve the randomness of the sample. Our current sample includes only sales records from one store. It is prone to be biased. One way to improve that is to randomly select purchase records from different stores at different regions.
 
 Secondly, after answering the question on whether male and female spend the same amounts on Black Friday, we may further analyze what male and female really bought, so as to get deeper insight into the different purchase behaviors between male and female.  
+
+# References
+
+1. [Black Friday analysis, Kaggle.com](https://www.kaggle.com/mehdidag/black-friday)
