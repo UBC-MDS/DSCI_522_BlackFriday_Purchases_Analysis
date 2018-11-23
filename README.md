@@ -1,6 +1,15 @@
 # Project: Black Friday Analysis
 
-Analyze whether male and female make the same amount of purchase on the Black Friday.
+# Overview
+
+The project is to analyze whether male and female make the same amount of purchase on Black Friday via a hypothesis test. 
+
+It follows the data analysis methodology shown below.  
+
+<center><img src="imgs/data-science.png"> </center>
+<center><i>Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) by Grolemund & Wickham</i></center>
+
+This project includes data, scripts, documents and results.
 
 # Team
 
@@ -25,12 +34,12 @@ originally comes from a competition hosted by `Analytics Vidhya`.
 ---
 To read first 5 lines from `BlackFriday.csv`, we run the following script in R.
 
-```R
+```
 Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 ```
 ![raw data](./imgs/read_raw_data_R.png)
 
-### Dependencies
+# Dependencies
 
 - R version 3.5.1
 - tidyverse, *manipulate and organize dataset*
@@ -40,11 +49,9 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 
 # Project Objective
 
-The data set contains the transactions made in a retail store on the Black Friday. We want to understand better the difference of the purchase behaviour between male and female. A specific question to be addressed by this project:
+The data set contains the transactions made in a retail store on the Black Friday. We want to understand better the difference of the purchase behaviour between male and female. An inferential question to be addressed by this project:
 
 Is the amount of purchase made by male different than that made by female during Black Friday?
-
-This question is inferential.
 
 # Analysis Plan
 
@@ -72,18 +79,33 @@ A summary statement regarding the results of this project will include the follo
 
 We will also comment on what we observe and make a conclusion on the results of our analysis.
 
-# Project Execution
+# Procedure
 
-We followed the data analysis methodology shown in below to carry out the analysis work in this project.  
-![](imgs/data-science.png)  
-<i>Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) by Grolemund & Wickham</i>  
+The procedure of running data analysis contains 5 steps, including clearning data, visualizing data, analyzing data, generating results and generating a final report, as shown below.
 
-Firstly, we imported the original csv file into R and had a quick look at it so as to understand how it is organized.  
+![](imgs/procedure.png)
 
-Secondly, we used a script to extract columns `Gender` and `Purchase` from the original data set and saved them into a new csv file.
+We start with cleaning data via `01_clean_data.R` that takes two arguments, a file that contains raw data and a output file that contains a tidy version of data. Then we apply exploratory data analysis via `02_visualize_data.R` from the tidy version of data file to discover patterns and generate a group of figures with the given path prefix `imgs`. In `03_analyze_data.R`, we carry out estimation and t-test based on the Central Limit Theorem and asymptotic theory. The results are stored in `results` folder. Then we generate final figures from the last step via `04_generate_final_result.R` and save them in `imgs`. In the end, we render `report.Rmd` into a Markdown file.
 
-Thirdly, based on the question we asked in this project, we defined our null hypothesis and alternative hypothesis. Then we run a t-test and saved the outputs into a csv file. At the same time, we used asymptotic theory to calculate the confidence intervals of the mean purchases made by male and female respectively and saved the results into another csv file.
+```
+# step 1 clean data
+Rscript src/01_clean_data.R data/BlackFriday.csv data/BlackFriday_tidy.csv
 
-Fourthly, using the output from the third step, we made a t-distribution plot and an error bar plot.
+# step 2 visualize data via EDA
+Rscript src/02_visualize_data.R data/BlackFriday_tidy.csv imgs
 
-Lastly, we wrote our analysis report in a R Markdown file. 
+# step 3 analyze data via t-test and CLT
+Rscript src/03_analyze_data.R data/BlackFriday_tidy.csv results
+
+# step 4 generate final results
+Rscript src/04_generate_final_result.R results imgs
+
+# step 5 Render Markdown file 
+Rscript -e "rmarkdown::render('./doc/report.Rmd')"
+```
+
+Or, we can just run the scripts via bash.
+
+```
+bash run_all.sh
+```

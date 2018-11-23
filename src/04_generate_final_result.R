@@ -58,9 +58,9 @@ plot_errorbar <- function(bf_est) {
     scale_x_discrete(labels = c("Female", "Male")) +
     xlab("Gender") + 
     ylab("The amount of purchase") +
-    ggtitle("The mean purchase with 95% confidence interval of female and male") +
+    ggtitle("The mean purchase amount with 95% confidence interval of female and male") +
     theme_bw() +
-    theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5))
+    theme(plot.title = element_text(size = 13, face = "bold", hjust = 0.5))
     
   return (errorbar)
 }
@@ -79,7 +79,7 @@ plot_tdist <- function(t_test_result){
     xlim(c(-47, 15)) +
     ylab("density") +
     xlab("") +
-    ggtitle("The T-distribution under the null hypothesis H_0") +
+    ggtitle("The t-distribution under the null hypothesis H_0") +
     theme_bw() +
     theme(plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
           axis.title.y = element_text(face = "bold"))
