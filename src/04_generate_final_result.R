@@ -72,7 +72,8 @@ plot_tdist <- function(t_test_result){
     ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
     stat_function(fun = dt, args = list(df = t_test_result$parameter), 
                  lwd = 0.7) +
-    geom_vline(xintercept = t_test_result$statistic, color = "red", linetype = 'dashed') +
+    geom_vline(xintercept = t_test_result$statistic, color = "red") +
+    geom_vline(xintercept = c(qnorm(0.025), qnorm(0.975)),  color = "blue", lty = 2) +
     annotate("text", x = -40, y = 0.25, size = 3.5, 
              label= paste("t-statistic\n", round(t_test_result$statistic, 2))) +
     xlim(c(-47, 15)) +
