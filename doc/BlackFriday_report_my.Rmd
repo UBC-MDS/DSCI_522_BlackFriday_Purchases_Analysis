@@ -6,11 +6,19 @@ output:
   github_document:
     fig_width: 10
     fig_height: 7
+    number_sections : yes
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE,  echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+suppressPackageStartupMessages(library(tidyverse))
 ```
+
+<style>
+body {
+text-align: justify}
+</style>
+
 
 ---
 # Delete later
@@ -71,11 +79,11 @@ str(BlackFriday_tidy)
 ```
 
 
-# Exploratory Data Analysis
+# 3.0 Exploratory Data Analysis
 
 Let's us start with initial investigations on the new data set so as to discover patterns and to test hypothesis with the help of visualizations.
 
-![](../imgs/gender_bar.png, "Female = 132197, Male = 405380")
+![](../imgs/gender_bar.png, "Female : 132197, Male : 405380")
 
 We plot a bar plot to show the number of femal and male made purchases on Black Friday in this sample. As can be seen above, An aggregate of over 400,000 males made purchases on Black Friday, three times more than the number of female.
 
@@ -89,10 +97,60 @@ The shape of the distribution of purchase made by female on Black Friday is siml
 
 # Analysis
 
-The process of out analysis begins with the definition of null hypothesis and alternative hypothesis. The null hypothesis $H_0$ is thhe mean purchase amount made by male is not different than the mean purchase amount made by female, while the alternative hypothesis $H_1$ is the mean purchase amount made by male is different than the mean purchase amount made by female.
+The process of our analysis begins with the definition of null hypothesis and alternative hypothesis. The null hypothesis $H_0$ is thhe mean purchase amount made by male is not different than the mean purchase amount made by female, while the alternative hypothesis $H_1$ is the mean purchase amount made by male is different than the mean purchase amount made by female.
+
+### Estimation
+
+We use the Central Limit Theorem (CLT) to calculate the standard error (SE) of the sample statistic of interest in order to estimate the mean of a population. The standard error is the standard deviation of the sampling distribution, which can be calculated by the following.
+
+$$SE = \frac{s}{\sqrt{n}}$$
+
+where $s$ is the sample standard deviation and $n$ is the number of observations in the sample.
+
+We then apply a mathematical short cut to calculate the 95% confidence intervals around the sample mean. This is the plausible range for the true populaiton mean we are estimating.
+
+$$95\% \, confidence \, interval \, = \, point \, estimate \, \pm  \, z \, * \, SE$$
+
+
+The multipliers ($z$) for the 95% confidence interval formula is the quantiles of 2.5% and 97.5%. The table summarized the results is shown below.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+(blackfriday_est <- suppressWarnings(read_csv("../results/blackfriday_est.csv")))
+```
+
+Next we plot the mean with 95% confidence interval for each gender into an error bar plot.
+
+![](../imgs/errorbar.png)
+
+The estimate for the population mean purchase amount made by femal is 8809.761 with a 95% confidence interval of 8784.310 and 8835.213. The estimate for the population mean purchase amount made by male is 9504.772 with a 95% confidence interval of 9489.223 and 9520.321. It should be noticed that the 95% confidence interval of our sample estimates are not overlapped. They are completely separated from each other. Therefore we get a sense of that we do not evidence to claim the null hypothesis.
+
+### Hypothesis Test
+
+We apply t-test to further investigate on whether the mean purchases are no different. The results of t-test are shown below.
+
+```{r, message = FALSE, echo = FALSE} 
+#input data
+(t_test_result <- suppressWarnings(read_csv("../results/t_test_result.csv")))
+```
+
+The t-statistic and the degree of freedom are -45.67 and 238457 respectively. We use them to plot a t-distribution. Since the sample size is large, the t-distribution produces similar results to those from the normal distribution.
+
+![](../imgs/tdist.png)
+
+The t-statistic is far away from the central of the distribution. The p-value is approximately 0, which is less than the alpha of 0.05 and indicatesstrong evidence against the null hypothesis. Therefore, we reject the null hypothesis and we cannot say that the mean purchase amount made by male is not different than the mean purchase amount made by female.
 
 
 
+# Assumption 
 
+1. meet the condition of the CLT
+2. t-distribution sample size
+
+
+
+# References
+
+1. [](https://github.com/rstudio-education/datascience-box/blob/master/slides/u2_d10-clt/img/6895997.png)
 
 
