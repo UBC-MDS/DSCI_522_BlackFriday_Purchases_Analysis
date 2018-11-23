@@ -39,7 +39,7 @@ main <- function(){
   ggsave("gender_pur_hist.png", plot = gender_pur_hist, path = out_file_prefix,
          width = 8, height = 5)
   
-  cat("EDA......Complete!")
+  cat("EDA......Complete!\n")
 }
 
 # create a barplot for gender feature 
