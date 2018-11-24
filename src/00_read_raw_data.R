@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env Rscript
 
 # Author: Mengda Yu & Gilbert gilbertlei
 # Date: 2018 Nov 15

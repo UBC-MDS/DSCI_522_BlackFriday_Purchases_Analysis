@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env Rscript
 
 ##################################################
 ## Project: visualize_data.R
