@@ -52,8 +52,8 @@ create_gender_barplot <- function(data){
     scale_x_discrete(breaks = c("F", "M"), labels = c("Female", "Male")) +
     scale_y_continuous(labels = comma) +
     xlab("Gender") + 
-    ylab("The number of observation") +
-    ggtitle("The number of female and male made purchase on Black Friday") +
+    ylab("The number of observations") +
+    ggtitle("The number Black Friday purchase made by female and male") +
     theme_bw() +
     theme(plot.title = element_text(size = 13, face = "bold", hjust = 0.5))
   
@@ -71,12 +71,12 @@ create_purch_hist <- function(data){
     temp <-
     data %>%
     ggplot(aes(x = Purchase)) +
-    geom_histogram(bins = 35, color = "white", fill = "#0099ff" ) +
+    geom_histogram(bins = 35, color = "white", fill = "#0099ff" ) + 
     geom_vline(xintercept = mean_purchase, alpha = 0.7, 
                color = "red", linetype = "dashed") +
     annotate("text", x = 11000, y = 45000, label = 'mean', alpha = 0.8) +
     scale_y_continuous(labels = comma) +
-    scale_x_continuous(labels = dollar_format()) +
+    scale_x_continuous(limits = c(0, 26000), breaks = seq(0, 25000, by=5000), labels = dollar_format()) +
     xlab("Purchase") + 
     ylab("The number of observation") +
     ggtitle("The distribution of purchase amount on Black Friday") +
@@ -106,7 +106,7 @@ create_gender_pur_hist <- function(data){
     facet_wrap(~Gender, nrow = 2, ncol = 1, 
                labeller = as_labeller(c("F"="Female", "M"="Male"))) +
     scale_y_continuous(labels = comma) +
-    scale_x_continuous(labels = dollar_format()) +
+    scale_x_continuous(limits = c(0, 26000), breaks = seq(0, 25000, by=5000), labels = dollar_format()) +
     xlab("Purchase") + 
     ylab("The number of observation") +
     ggtitle("The distribution of purchase amount for each gender on Black Friday.") +
