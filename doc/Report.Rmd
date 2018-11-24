@@ -3,7 +3,7 @@ title: "Black Friday Analysis"
 author: "Gilbert Lei and Mengda (Albert) Yu"  
 date: "2018/11/22"  
 output:
-   html_document:
+   github_document:
      toc: true
      toc_depth: 2
 ---
@@ -145,6 +145,8 @@ Secondly, after answering the question on whether male and female spent the same
 
 # 7.0 References
 
-1. [Black Friday analysis, Kaggle.com](https://www.kaggle.com/mehdidag/black-friday) 
-2. [R for Data Science, by Grolemund & Wickham](https://r4ds.had.co.nz/introduction.html)
-3. [Introduction to asymptotic theory](https://github.ubc.ca/MDS-2018-19/DSCI_552_stat-inf-1_students/blob/master/lectures/06_lecture-intro-to-asymptotic-theory.ipynb)  
+1. *Black Friday analysis, Kaggle.com*. [online] Available at: https://www.kaggle.com/mehdidag/black-friday. [Accessed 23 Nov. 2018]
+
+2. *R for Data Science, by Grolemund & Wickham*. [online] Available at: https://r4ds.had.co.nz/introduction.html. [Accessed 23 Nov. 2018]
+
+3. *Introduction to asymptotic theory*. [online] Available at:https://github.ubc.ca/MDS-2018-19/DSCI_552_stat-inf-1_students/blob/master/lectures/06_lecture-intro-to-asymptotic-theory.ipynb. [Accessed 23 Nov. 2018]
