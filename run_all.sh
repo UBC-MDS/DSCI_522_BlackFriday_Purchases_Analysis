@@ -1,9 +1,10 @@
-# test.sh
+# run_all.sh
 
 ###################################################
 ## Date: 2018 Nov 22
 ## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei [ctb]
-## Script purpose: NULL
+## Script purpose: This driver script completes the data analysis of the project.
+##                 This script takes no arguments.
 ## Usage: bash run_all.sh
 ##################################################
 
