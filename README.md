@@ -53,7 +53,7 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 
 The data set contains the transactions made in a retail store on the Black Friday. We want to understand better the difference of the purchase behaviour between male and female. An inferential question to be addressed by this project:
 
-Is the amount of purchase made by male different from that made by female during Black Friday?
+> Is the amount of purchase made by male different from that made by female during Black Friday?
 
 # Analysis Plan
 
