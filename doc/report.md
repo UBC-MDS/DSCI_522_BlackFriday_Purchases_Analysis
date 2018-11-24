@@ -119,7 +119,7 @@ The t-statistic and the degree of freedom are -45.67 and 238457 respectively. We
 
 *Figure 5. The t-distribution with t-statistic.*
 
-The above plot shows that the t-statistic falls far out of the 95% confidence interval. The corresponding p-value is approximately 0, which is far less than the threshold of 0.05 and is a strong evidence against the null hypothesis. Therefore, we might reject the null hypothesis.
+The above plot shows that the t-statistic falls far out of the 95% confidence interval. The corresponding p-value is approximately 0, which is far less than the threshold of 0.05 and is a strong evidence against the null hypothesis. Therefore, we reject the null hypothesis.
 
 ### 4.3 Conclusion
 
