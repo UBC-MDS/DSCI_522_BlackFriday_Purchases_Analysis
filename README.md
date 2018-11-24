@@ -42,10 +42,11 @@ Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
 # Dependencies
 
 - R version 3.5.1
-- tidyverse, *manipulate and organize dataset*
-- ggplot2, *generate graphics*
-- scales, *scale tools for graphics*
-- broom, *tidy dataset*
+- R libraries
+  - tidyverse, *manipulate and organize dataset*
+  - ggplot2, *generate graphics*
+  - scales, *scale tools for graphics*
+  - broom, *tidy dataset*
 
 # Project Objective
 
@@ -102,7 +103,7 @@ Rscript src/03_analyze_data.R data/BlackFriday_tidy.csv results
 Rscript src/04_generate_final_result.R results imgs
 
 # step 5 Render Markdown file to generate project report
-Rscript -e "rmarkdown::render('./doc/report.Rmd')"
+Rscript -e "rmarkdown::render('./doc/Report.Rmd', 'github_document')"
 ```
 
 Or, we can run all scripts via a shell script.

@@ -1,7 +1,7 @@
-#! /usr/bin/env python
+#! /usr/bin/env Rscript
 
 ###################################################
-## Project: BF_purchase_analysis.R
+## Project: generate_final_result.R
 ## Date: 2018 Nov 
 ## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei [ctb]
 ## Script purpose: This script is to read in the analysis result and generate 

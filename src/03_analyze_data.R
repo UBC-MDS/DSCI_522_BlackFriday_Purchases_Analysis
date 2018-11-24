@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env Rscript
 
 ###################################################
 ## Project: analyze_data.R
