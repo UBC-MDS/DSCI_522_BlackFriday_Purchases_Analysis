@@ -1,13 +1,14 @@
-# Makefile
-# author: Mengda (Albert) Yu and Gilbert Lei
-# Date: 2018 Nov 28
-# Purpose: This script is to create a fully automated data analysis pipeline.
-#
-#
-# Example : make all
+#! /usr/bin/env make
+## author: Mengda (Albert) Yu and Gilbert Lei
+## Date: 2018 Nov 28
+## Purpose: This script is to create a fully automated data analysis pipeline 
+## 					of our project
+##
+## Usage : make <target> or <all> or <clean>
+## Example : make data/BlackFriday_tidy.csv
 
 ###################################################
-### Run Rscripts one by one
+### Run a specific target
 ###################################################
 # step 1 clean data 
 data/BlackFriday_tidy.csv : data/BlackFriday.csv src/01_clean_data.R
@@ -31,7 +32,7 @@ doc/report.md : imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png
 
 
 ###################################################
-### Run all scripts
+### Run all targets
 ###################################################
 .PHONY : all
 all : doc/report.md
@@ -46,7 +47,7 @@ clean :
 	rm -f doc/report.md doc/report.html
 
 ###################################################
-### Remove specifically the rendered report
+### Remove the rendered report
 ###################################################
 .PHONY : clean_report
 clean_report :
