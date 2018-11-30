@@ -29,7 +29,7 @@ BlackFriday <- read_csv("../data/BlackFriday.csv")
 knitr::kable(head(BlackFriday, 5))
 ```
 
-*Table 1. Black Friday raw data*
+*Table 1. Black Friday raw data that contains 12 features.*
 
 To perform our hypothesis test, we used two features from the data set. One is `Purchase`, which is quantitative and represents the purchase amount in dollars, and another is `Gender`, which is categorical and has two possible values: M (male) and F (female).
 
@@ -41,7 +41,7 @@ BlackFriday_tidy <- read_csv("../data/BlackFriday_tidy.csv")
 knitr::kable(head(BlackFriday_tidy, 5))
 ```
 
-*Table 2. A tidy version of Black Friday data used in the porject*
+*Table 2. A tidy version of Black Friday data used in the porject. It contains two variables, Purchase (quantitative) and Gender (categorical).*
 
 # 3.0 Exploratory Data Analysis
 
@@ -51,19 +51,19 @@ We made a bar plot to show the numbers of purchases made by male and female resp
 
 ![](../imgs/gender_bar.png)
 
-*Figure 1. The number of female and male made purchases on Black Friday.*
+*Figure 1. The number of female and male made purchases on Black Friday. The number of male made purchase on BlackFriday is greater than that of female.*
 
 A histogram we plotted, shown in below, reveals that the amount of the majority purchases made on Black Friday are centralized in a range from about \$5,000 to \$13,000. The mean purchase amount is around \$10,000.
 
 ![](../imgs/purch_dist.png)
 
-*Figure 2. The distribution of all purchases made on Black Friday.*
+*Figure 2. The distribution of all purchases made on Black Friday. The red vertical line represents the mean purchases amount on Black Friday.*
 
 We also made separate histogram plots for purchases made by male and female. As we can see from these plots, shown below, the shapes of the distributions of purchases made by female and male are quite similar. In addition, the difference between the means of the two groups looks quite small on the chart. Does this imply that male and female spent the same amount on Black Friday? Let's find out in our formal analysis. 
 
 ![](../imgs/gender_pur_hist.png)
 
-*Figure 3. The distribution of purchases made by male and female on Black Friday.*
+*Figure 3. The distribution of purchases made by male and female on Black Friday. The red vertical lines represent the mean purchases amount for each gender.*
 
 
 # 4.0 Analysis
@@ -78,7 +78,7 @@ We use the Central Limit Theorem (CLT) to calculate the standard error (SE) of t
 
 where $s$ is the sample standard deviation and $n$ is the number of observations in the sample.
 
-We then apply a mathematical short cut to calculate the 95% confidence intervals around the sample mean. This is the plausible range for the true populaiton mean we are estimating.
+We then apply a mathematical short cut to calculate the 95% confidence intervals around the sample mean. This is the plausible range for the true population mean we are estimating.
 
 > 95% confidence interval = point estimate +/- z * SE
 
@@ -91,13 +91,13 @@ blackfriday_est <- suppressWarnings(read_csv("../results/blackfriday_est.csv"))
 knitr::kable(blackfriday_est)
 ```
 
-*Table 3. The mean purchase amount with 95% confidence interval*
+*Table 3. The mean purchase amount with 95% confidence interval. It contains the mean, the number of observation and the 95% confidence interval for each gender.*
 
 Next we plot the mean and 95% confidence interval for each purchase group in an error bar plot.
 
 ![](../imgs/errorbar.png)
 
-*Figure 4. The mean purcahse amount with 95% confidence interval of female and male.*
+*Figure 4. The mean purcahse amount with 95% confidence interval of female and male. The red points represent the mean purchase amount. The error bars represent the 95% confidence interval around the mean.*
 
 The estimate for the population mean of purchases made by female is 8809.761 with a 95% confidence interval of (8784.310, 8835.213). The estimate for the population mean of purchases made by male is 9504.772 with a 95% confidence interval of (9489.223, 9520.321). It should be noticed that there is no overlap between the 95% confidence intervals of the two groups. Actually, they are completely separated from each other. Therefore, we might reject the null hypothesis. 
 
@@ -117,7 +117,7 @@ The t-statistic and the degree of freedom are -45.67 and 238457 respectively. We
 
 ![](../imgs/tdist.png)
 
-*Figure 5. The t-distribution with t-statistic.*
+*Figure 5. The t-distribution with t-statistic. The bule dashed lines are the 95% confidence interval of a t-distribution. The red line represent the t-statistic.*
 
 The above plot shows that the t-statistic falls far out of the 95% confidence interval. The corresponding p-value is approximately 0, which is far less than the threshold of 0.05 and is a strong evidence against the null hypothesis. Therefore, we reject the null hypothesis. 
 
@@ -130,7 +130,7 @@ As discussed above, both the asymptotic theory-based analysis and t-test show th
 In this project, we base our statistical inference on asymptotic theory. It means we assume the sample used in this project meets the two important conditions of the CLT.
 
 Firstly, the sample is independent. To meet the independence condition, we consider two things.  
-    1. The sample is random. As mentioned above, the data points in the data set come from the Black Friday sales records in a store. We assume this store is a typical store in the United States and all the purchases made on Black Friday at this store is not significantly different from the purcahses made at any other stores on Black Fridays.  
+    1. The sample is random. As mentioned above, the data points in the data set come from the Black Friday sales records in a store. We assume this store is a typical store in the United States and all the purchases made on Black Friday at this store is not significantly different from the purchases made at any other stores on Black Fridays.  
     2. The sample size is less than 10% of the population size. Since the sample contains only the sales data from one store in the United States, it must be less than 10% of all the Black Friday sales in the United States. 
 
 Secondly, the sample size is big enough. Since the sample contains more than 500,000 data points, we believe it is a big enough sample.  
