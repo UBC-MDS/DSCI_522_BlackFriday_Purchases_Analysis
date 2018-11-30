@@ -1,5 +1,5 @@
 ---
-title: "Black Friday Analysis"  
+title: "Black Friday Purchases Analysis"  
 author: "Gilbert Lei and Mengda (Albert) Yu"  
 date: "2018/11/22"  
 output:

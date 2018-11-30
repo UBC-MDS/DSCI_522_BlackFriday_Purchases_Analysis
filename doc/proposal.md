@@ -1,4 +1,4 @@
-# Project: Black Friday Analysis
+# Project: Black Friday Purchases Analysis
 
 This project is to analyze whether male and female make the same amount of purchase on Black Friday via a hypothesis test.
 
