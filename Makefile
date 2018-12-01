@@ -63,7 +63,7 @@ clean_imgs :
 	rm -f imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png imgs/errorbar.png imgs/tdist.png # all figures
 	
 ###################################################
-### Remove all images
+### Remove all csv
 ###################################################
 .PHONY : clean_csv
 clean_csv :
