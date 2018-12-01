@@ -18,7 +18,7 @@ To reproduce the data analysis, you can firstly clone the repo to the local comp
 git clone https://github.com/UBC-MDS/DSCI_522_BlackFriday_Analysis.git
 ```
 
-### Usage via .sh
+### Usage via shell
 
 You then nevigate to the `root` directory of the project and run the following commands step by step.
 ```
