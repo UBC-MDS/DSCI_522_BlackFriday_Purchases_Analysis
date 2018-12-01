@@ -45,6 +45,7 @@ clean :
 	rm -f data/BlackFriday_tidy.csv results/blackfriday_est.csv results/t_test_result.csv # all data files
 	rm -f imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png imgs/errorbar.png imgs/tdist.png # all figures
 	rm -f doc/report.md doc/report.html
+	rm -f Rplots.pdf .RData
 
 ###################################################
 ### Remove the rendered report
@@ -52,3 +53,18 @@ clean :
 .PHONY : clean_report
 clean_report :
 	rm -f doc/report.md doc/report.html
+	
+	
+###################################################
+### Remove all images
+###################################################
+.PHONY : clean_imgs
+clean_imgs :
+	rm -f imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png imgs/errorbar.png imgs/tdist.png # all figures
+	
+###################################################
+### Remove all images
+###################################################
+.PHONY : clean_csv
+clean_csv :
+	rm -f data/BlackFriday_tidy.csv results/blackfriday_est.csv results/t_test_result.csv # all data files
