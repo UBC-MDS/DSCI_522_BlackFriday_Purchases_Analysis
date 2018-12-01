@@ -57,13 +57,13 @@ A histogram we plotted, shown in below, reveals that the amount of the majority 
 
 ![](../imgs/purch_dist.png)
 
-*Figure 2. The distribution of all purchases made on Black Friday. The red vertical line represents the mean purchases amount on Black Friday.*
+*Figure 2. The histogram of all purchases made on Black Friday. The red vertical line represents the mean purchases amount on Black Friday.*
 
 We also made separate histogram plots for purchases made by male and female. As we can see from these plots, shown below, the shapes of the distributions of purchases made by female and male are quite similar. In addition, the difference between the means of the two groups looks quite small on the chart. Does this imply that male and female spent the same amount on Black Friday? Let's find out in our formal analysis. 
 
 ![](../imgs/gender_pur_hist.png)
 
-*Figure 3. The distribution of purchases made by male and female on Black Friday. The red vertical lines represent the mean purchases amount for each gender.*
+*Figure 3. The histogram of purchases made by male and female on Black Friday. The red vertical lines represent the mean purchases amount for each gender.*
 
 
 # 4.0 Analysis
@@ -72,11 +72,7 @@ The process of our analysis begins with the definition of null hypothesis and al
 
 ### 4.1 Estimation
 
-We use the Central Limit Theorem (CLT) to calculate the standard error (SE) of the sample statistic of interest in order to estimate the mean of the population. The standard error is the standard deviation of the sampling distribution, which can be calculated by the following.
-
-> SE = s/sqrt(n)
-
-where $s$ is the sample standard deviation and $n$ is the number of observations in the sample.
+We use the Central Limit Theorem (CLT) to calculate the standard error (SE) of the sample statistic of interest in order to estimate the mean of the population. The standard error is the standard deviation of the sampling distribution.
 
 We then apply a mathematical short cut to calculate the 95% confidence intervals around the sample mean. This is the plausible range for the true population mean we are estimating.
 

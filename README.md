@@ -41,7 +41,7 @@ This project repository includes data, scripts, documents and results.
 
 The data set we use for this project is [BlackFriday.csv](https://www.kaggle.com/mehdidag/black-friday)(5 MB), which contains over 500,000 observations about the Black Friday sales in a retail store. It involves different kinds of numerical variables, such as `purchase`, and categorical variables, such as `gender`. This dataset is originally used for people to make a better understanding of customer purchase behaviour.
 
-##### Acknowledgements
+##### Acknowledgments
 
 The data set is downloaded from Kaggle.com ([download link](https://www.kaggle.com/mehdidag/black-friday)). It
 originally comes from a competition hosted by `Analytics Vidhya`.
