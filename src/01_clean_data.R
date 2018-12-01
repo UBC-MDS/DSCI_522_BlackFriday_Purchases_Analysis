@@ -34,7 +34,7 @@ main <- function(){
   cat("Cleaning......Complete!\n")
 }
 
-# randomly sample data 
+# retrieve column 'Gender' and 'Purchase'  
 select_data <- function(data){
   
   temp <- 
