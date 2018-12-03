@@ -46,7 +46,7 @@ bash run_all.sh
 
 ### Usage via Make
 
-If you are using `Make`, you can the following commands.
+If you are using `Make`, you can run the following commands.
 ```
 # To run all scripts and generate a final report 
 make all

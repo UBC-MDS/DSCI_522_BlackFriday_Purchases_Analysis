@@ -117,3 +117,4 @@ make clean
   - ggplot2 (version 3.1.0), *generate graphics*
   - scales (version 1.0.0), *scale tools for graphics*
   - broom (version 0.5.0), *tidy table appeareance*
+  - testthat (version 2.0.1), *provide unit tests*
