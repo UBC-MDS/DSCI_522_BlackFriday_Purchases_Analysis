@@ -1,6 +1,6 @@
 # Documents
 
-This folder contains the all documents, including:
+This folder contains all the documents, including:
 
 + [proposal](./proposal.md)
     - An introduction of the project that proposes the project objective, the analysis plan and the summary presentation.
