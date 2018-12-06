@@ -30,7 +30,7 @@ results/blackfriday_est.csv results/t_test_result.csv : data/BlackFriday_tidy.cs
 		Rscript src/03_analyze_data.R data/BlackFriday_tidy.csv results
 
 # step 4 make plots to visualize analysis results
-imgs/errorbar.png imgs/tdist.png : results/blackfriday_est.csv results/t_test_result.csv src/04_generate_final_result.R
+imgs/errorbar.png imgs/tdist.png : results src/04_generate_final_result.R
 		Rscript src/04_generate_final_result.R results imgs
 
 # step 5 Render Markdown file to generate project report
