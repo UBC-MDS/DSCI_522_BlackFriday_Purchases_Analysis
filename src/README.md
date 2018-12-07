@@ -56,3 +56,23 @@ make all
 # To remove all figures and analyzed results
 make clean
 ```
+
+### Usage via Docker
+
+
+For people with Docker installed on their machines, you can download a docker image of the project from Docker Hub.
+
+```
+docker pull mru4913/dsci_522_blackfriday_purchases_analysis
+```
+
+To run this analysis using Docker, you should clone/download this repository, as shown above, use the command line to navigate to the root of this project on your computer, and then type the following(Please fill in PATH_ON_YOUR_COMPUTER with the absolute path to the root of this project on your computer).
+
+```
+docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_blackfriday_purchases_analysis make -C '/home/data_analysis' all
+```
+
+To clean all the file generated, you can run the following.
+```
+docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_blackfriday_purchases_analysis make -C '/home/data_analysis' clean
+```
