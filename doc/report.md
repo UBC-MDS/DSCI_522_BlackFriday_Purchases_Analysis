@@ -95,7 +95,7 @@ The estimate for the population mean of purchases made by female is 8809.761 wit
 
 ### 4.2 Hypothesis Test
 
-We applied t-test to further investigate on whether the mean purchases are not different. The results of t-test are shown below.
+We applied t-test to further investigate on whether the mean purchases are not different. The p-value calculated is extremely small (p-value &lt; 1e-6), which is rounded to 0 in R. The results of t-test are shown below.
 
 |   X1|   estimate|  estimate1|  estimate2|  statistic|  p.value|  parameter|   conf.low|  conf.high| method                  | alternative |
 |----:|----------:|----------:|----------:|----------:|--------:|----------:|----------:|----------:|:------------------------|:------------|

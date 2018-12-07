@@ -143,3 +143,7 @@ docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_
   - scales (version 1.0.0), *scale tools for graphics*
   - broom (version 0.5.0), *tidy table appeareance*
   - testthat (version 2.0.1), *provide unit tests*
+  
+---
+
+Released [UnderCC0: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
