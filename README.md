@@ -1,5 +1,7 @@
 # Black Friday Purchases Analysis
 
+**Latest Update Date:** 2018 Dec 8
+
 # Team
 
 Instructor : Tiffany Timbers
@@ -48,8 +50,11 @@ The data set we used for this project is [BlackFriday.csv](https://www.kaggle.co
 The data set is downloaded from Kaggle.com ([download link](https://www.kaggle.com/mehdidag/black-friday)). It
 originally comes from a competition hosted by `Analytics Vidhya`.
 
+Released [UnderCC0: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+
 ---
 To read the first 5 lines from `BlackFriday.csv`, we run the following script in R. The output is shown in below image.
+
 
 ```
 Rscript src/00_read_raw_data.R data/BlackFriday.csv 5
@@ -112,7 +117,7 @@ make clean
 The dependency diagram of the Makefile is shown below.
 
 <div align="middle">
-  <img src="imgs/Makefile.png"/>
+  <img src="imgs/Makefile.png" height="300" width="1000"/>
 </div>
 
 # Usage with docker
@@ -143,7 +148,3 @@ docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_
   - scales (version 1.0.0), *scale tools for graphics*
   - broom (version 0.5.0), *tidy table appeareance*
   - testthat (version 2.0.1), *provide unit tests*
-  
----
-
-Released [UnderCC0: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
