@@ -117,7 +117,7 @@ make clean
 The dependency diagram of the Makefile is shown below.
 
 <div align="middle">
-  <img src="imgs/Makefile.png" height="300" width="1000"/>
+  <img src="imgs/Makefile.png" height="280" width="1000"/>
 </div>
 
 # Usage with docker
@@ -148,3 +148,5 @@ docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_
   - scales (version 1.0.0), *scale tools for graphics*
   - broom (version 0.5.0), *tidy table appeareance*
   - testthat (version 2.0.1), *provide unit tests*
+- Docker (version 18.09.0)
+- Make (version 3.81)
