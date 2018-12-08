@@ -16,3 +16,13 @@ FROM rocker/tidyverse
 RUN R -e "install.packages('broom')"
 RUN R -e "install.packages('scales')"
 RUN R -e "install.packages('testthat')"
+
+# clone, build makefile2graph, 
+# then copy key makefile2graph files to usr/bin so they will be in $PATH
+# From Tiffany's Docker file https://hub.docker.com/r/ttimbers/makefile2graph/~/dockerfile/
+RUN git clone https://github.com/lindenb/makefile2graph.git
+
+RUN make -C makefile2graph/.
+
+RUN cp makefile2graph/makefile2graph usr/bin
+RUN cp makefile2graph/make2graph usr/bin
