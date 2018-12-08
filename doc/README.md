@@ -7,4 +7,4 @@ This folder contains all the documents, including:
   
 + [report RMarkdown](./Report.Rmd)
 + [report Markdown](./report.md)
-    - An final report of the project that summarises the project introduction, the exploratory data analysis, the analysis process and the final results. 
+    - An final report of the project that summaries the project introduction, the exploratory data analysis, the analysis process and the final results. 
