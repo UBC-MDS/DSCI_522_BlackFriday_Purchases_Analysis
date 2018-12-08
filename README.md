@@ -129,7 +129,7 @@ To run this analysis using Docker, you should clone/download this repository, as
 docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_blackfriday_purchases_analysis make -C '/home/data_analysis' all
 ```
 
-To clean all the file generated, you can run the following.
+To remove all the file generated, you can run the following.
 ```
 docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_blackfriday_purchases_analysis make -C '/home/data_analysis' clean
 ```
