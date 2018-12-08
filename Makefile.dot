@@ -3,7 +3,7 @@ n2[label="all", color="red"];
 n6[label="data/BlackFriday.csv", color="green"];
 n5[label="data/BlackFriday_tidy.csv", color="green"];
 n18[label="doc/Report.Rmd", color="green"];
-n3[label="doc/report.md", color="green"];
+n3[label="doc/report.md", color="red"];
 n14[label="imgs/errorbar.png", color="green"];
 n4[label="imgs/gender_bar.png", color="green"];
 n10[label="imgs/gender_pur_hist.png", color="green"];

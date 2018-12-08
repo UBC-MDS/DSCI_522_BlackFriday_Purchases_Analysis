@@ -38,6 +38,9 @@ doc/report.md : imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png
 		Rscript -e "rmarkdown::render('./doc/Report.Rmd', 'github_document')"
 
 # generate a makefile dot file and graph
+.PHONY : makefile_graph
+makefile_graph : imgs/Makefile.png
+
 Makefile.dot :
 	makefile2graph > Makefile.dot
 
