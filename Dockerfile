@@ -12,14 +12,18 @@
 # Create from a base image
 FROM rocker/tidyverse
 
-# Install extra R packages 
+# Install extra R packages
 RUN R -e "install.packages('broom')"
 RUN R -e "install.packages('scales')"
 RUN R -e "install.packages('testthat')"
 
-# clone, build makefile2graph, 
-# then copy key makefile2graph files to usr/bin so they will be in $PATH
 # From Tiffany's Docker file https://hub.docker.com/r/ttimbers/makefile2graph/~/dockerfile/
+
+# install graphviz
+RUN apt-get install -y graphviz
+
+# clone, build makefile2graph,
+# then copy key makefile2graph files to usr/bin so they will be in $PATH
 RUN git clone https://github.com/lindenb/makefile2graph.git
 
 RUN make -C makefile2graph/.
