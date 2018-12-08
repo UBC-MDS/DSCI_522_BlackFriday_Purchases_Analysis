@@ -6,7 +6,8 @@
 ## Purpose: This Docker file is used to build a docker image with R packages/dependencies
 ##         for the project
 ##
-##
+## Example : docker pull mru4913/dsci_522_blackfriday_purchases_analysis
+##           docker run --rm -v <PATH_ON_YOUR_COMPUTER>:/home/data_analysis mru4913/dsci_522_blackfriday_purchases_analysis make -C '/home/data_analysis' all
 ###################################################
 
 # Create from a base image
