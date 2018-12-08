@@ -4,7 +4,7 @@
 ## Project: 02_unit_test.R
 ## Date: 2018 Dec 7
 ## Author: Mengda (Albert) Yu [aut cre] and Gilbert Lei
-## Script purpose: This scripts is an unit test for the output of 02_visualize_data.R
+## Script purpose: This scripts is an unit test for the function of 02_visualize_data.R
 ##  
 ## Example: Rscript test/02_unit_test.R
 ##################################################
@@ -14,7 +14,7 @@ suppressPackageStartupMessages(library(testthat))
 suppressPackageStartupMessages(library(tidyverse))
 
 # Grab functions
-source("src/02_visualize_data.R")
+source("./src/02_visualize_data.R")
 
 # Create sample data 
 data1 <- tibble( 

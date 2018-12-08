@@ -14,6 +14,10 @@ suppressPackageStartupMessages(library(testthat))
 suppressPackageStartupMessages(library(tidyverse))
 
 # Grab functions
+# args <- commandArgs(trailingOnly = TRUE)
+# in_file_path <- args[1]
+# source(paste(in_file_path, "03_analyze_data.R", sep = '/'))
+# source(paste(in_file_path, "04_generate_final_result.R", sep = '/'))
 source("./src/03_analyze_data.R")
 source("./src/04_generate_final_result.R")
 
