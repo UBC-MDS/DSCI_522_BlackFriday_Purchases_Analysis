@@ -117,7 +117,7 @@ make clean
 The dependency diagram of the Makefile is shown below.
 
 <div align="middle">
-  <img src="imgs/Makefile.png" height="1600" width="1200"/>
+  <img src="imgs/Makefile.png" height="1200" width="1200"/>
 </div>
 
 # Usage with docker
