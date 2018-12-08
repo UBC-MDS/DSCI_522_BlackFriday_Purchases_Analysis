@@ -51,7 +51,6 @@ clean :
 	rm -f imgs/gender_bar.png imgs/purch_dist.png imgs/gender_pur_hist.png imgs/errorbar.png imgs/tdist.png # all figures
 	rm -f doc/report.md doc/report.html
 	rm -f Rplots.pdf .RData
-	rm -f Makefile.dot
 
 ###################################################
 ### Remove the rendered report
@@ -74,3 +73,11 @@ clean_imgs :
 .PHONY : clean_csv
 clean_csv :
 	rm -f data/BlackFriday_tidy.csv results/blackfriday_est.csv results/t_test_result.csv # all data files
+	
+	
+###################################################
+### Remove the rendered report
+###################################################
+.PHONY : clean_dependency
+clean_dependency :
+	rm -f Makefile.dot
