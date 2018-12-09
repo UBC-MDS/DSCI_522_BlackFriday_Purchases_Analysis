@@ -1,10 +1,12 @@
 # Documents
 
-This folder contains all the documents, including:
+This folder contains documents listed in below, including:
 
 + [proposal](./proposal.md)
-    - An introduction of the project that proposes the project objective, the analysis plan and the summary presentation.
-  
+    - This is the proposal of this project. It contains the project objective, the analysis plan and the expected summary presentation.
+
 + [report RMarkdown](./Report.Rmd)
+    - Project report in R Markdown format.
+
 + [report Markdown](./report.md)
-    - An final report of the project that summaries the project introduction, the exploratory data analysis, the analysis process and the final results. 
+    - A final report rendered from the above Rmd file. It contains the project introduction, the exploratory data analysis, the analysis process, the analysis conclusion, and the limitations and future directions. 
